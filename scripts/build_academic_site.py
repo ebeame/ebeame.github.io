@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build the public academic site with Python's standard library only."""
 import html
+import hashlib
 import json
 import shutil
 from pathlib import Path
@@ -16,6 +17,11 @@ SITE_URL = 'https://ebeame.github.io'
 
 def esc(value):
     return html.escape(str(value), quote=True)
+
+
+def asset_url(name):
+    version = hashlib.sha256((SOURCE / 'assets' / name).read_bytes()).hexdigest()[:12]
+    return f'/assets/{name}?v={version}'
 
 
 def authors(value):
@@ -67,8 +73,8 @@ def shell(title, body, page='home', path='/', description=None):
 <title>{esc(search_title)}</title><meta name="description" content="{esc(description)}">
 <meta name="theme-color" content="#e5edf3"><link rel="canonical" href="{SITE_URL}{path}">
 <meta property="og:type" content="website"><meta property="og:title" content="{esc(search_title)}"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{SITE_URL}{path}">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/academic.css">
-<script type="application/ld+json">{json.dumps(structured)}</script><script src="/assets/academic.js" defer></script>{'<script src="/assets/soft-gait.js" defer></script>' if page == 'home' and path == '/' else ''}</head>
+<link rel="icon" href="{asset_url('favicon.svg')}" type="image/svg+xml"><link rel="stylesheet" href="{asset_url('academic.css')}">
+<script type="application/ld+json">{json.dumps(structured)}</script><script src="{asset_url('academic.js')}" defer></script>{f'<script src="{asset_url("soft-gait.js")}" defer></script>' if page == 'home' and path == '/' else ''}</head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><div class="header-inner wrap"><a class="wordmark" href="/" aria-label="Yibin Wang home">Yibin Wang<span>.</span></a>
 <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu ☰</button><nav class="nav-links" id="main-nav" aria-label="Main navigation">{navigation(page)}<a class="nav-contact" href="/#contact">Contact ↗</a></nav></div></header>
