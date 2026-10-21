@@ -55,7 +55,7 @@
 .research-detail{display:block}
 .research-item .mini-art{display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;width:100%;margin:0 0 18px;overflow:hidden;background:#fff}
 .research-item:first-child .mini-art{background:#fff}
-.research-item:first-child .mini-art img{filter:invert(1)}
+.research-item:first-child .mini-art img{filter:invert(1) contrast(1.15)}
 .research-item:nth-child(n+2) .mini-art{background:#fff}
 .mini-art img{display:block;width:100%;height:100%;max-height:none;object-fit:contain}
 .research-copy .research-tag{margin:0 0 9px;font-size:12px}

@@ -79,7 +79,7 @@ The interface uses a pure white background (`#ffffff`), near-black text (`#26262
 
 ## Current research media
 
-Bio-inspired design displays `site/assets/research/strider-jump-wide.jpg`, the author's experimental time-composite photograph supplied as `STD_jump on water surface end strength 0 mT.jpg`. The complete photograph is centered on a 1408 × 792 black canvas, with black side padding and no cropping. At the author's request, CSS `filter: invert(1)` displays this figure as a dark robot on white; the original asset is retained unchanged. It has no video, animated montage or playback controls.
+Bio-inspired design displays `site/assets/research/strider-jump-wide.jpg`, the author's experimental time-composite photograph supplied as `STD_jump on water surface end strength 0 mT.jpg`. The complete photograph is centered on a 1408 × 792 black canvas, with black side padding and no cropping. At the author's request, CSS `filter: invert(1) contrast(1.15)` displays this figure as a dark robot on pure white; the white point clips original near-black values up to approximately 16/255 while preserving the remaining grayscale detail; the original asset is retained unchanged. It has no video, animated montage or playback controls.
 
 Ciliated robotic systems displays `ciliavine-intravascular.png`, cropped from the original CUHK-Shenzhen research news illustration to match the vessel and multimodal manipulation region selected by the author. The full original illustration remains in the featured study. The generated CiliaVine card artwork is retained in the source but excluded from deployment.
 
