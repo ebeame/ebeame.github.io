@@ -14,14 +14,15 @@
   let ratio = 1;
   const tau = Math.PI * 2;
   const sceneWidth = 640;
-  const sceneHeight = 520;
-  const bodyLength = 195;
+  const sceneHeight = 430;
+  const robotScale = 1.35;
+  const bodyLength = 195 * robotScale;
   // One period of an invisible S-curve, joined smoothly across the canvas edges.
   const route = [];
   let routeLength = 0;
   for (let i = 0; i <= 960; i++) {
     const u = i / 960;
-    const p = {x: sceneWidth * u, y: 273 + 82 * Math.sin(u * tau)};
+    const p = {x: sceneWidth * u, y: sceneHeight / 2 + 82 * Math.sin(u * tau)};
     if (i) routeLength += Math.hypot(p.x - route[i - 1].x, p.y - route[i - 1].y);
     route.push({...p, distance: routeLength});
   }
@@ -66,7 +67,7 @@
   function center(u, t) {
     const head = (300 + t * 36) % routeLength;
     const p = onRoute(head - (1 - u) * bodyLength);
-    const wave = 2.4 * Math.sin(u * tau * 0.85 - t * 1.4);
+    const wave = 2.4 * robotScale * Math.sin(u * tau * 0.85 - t * 1.4);
     return {...p, x: p.x - p.ty * wave, y: p.y + p.tx * wave};
   }
 
@@ -88,8 +89,8 @@
         for (let j = 0; j <= 30; j++) {
           const s = j / 30;
           const curl = Math.sin(s * Math.PI / 2);
-          const along = (-14 + 12 * swing) * s + (7 + 5 * bend) * s * s * s;
-          const across = side * (3 + reach * curl - 4 * bend * Math.sin(s * Math.PI));
+          const along = ((-14 + 12 * swing) * s + (7 + 5 * bend) * s * s * s) * robotScale;
+          const across = side * (3 + reach * curl - 4 * bend * Math.sin(s * Math.PI)) * robotScale;
           points.push({x: root.x + root.tx * along - root.ty * across,
             y: root.y + root.ty * along + root.tx * across});
         }
@@ -99,9 +100,9 @@
 
     // Soft, short shadows beneath each moving leg.
     ctx.save();
-    ctx.translate(2, 4);
-    ctx.filter = 'blur(2px)';
-    legs.forEach(leg => ribbon(leg.points, s => 4 * (1 - s * 0.76), 'rgba(28,66,54,.14)'));
+    ctx.translate(2 * robotScale, 4 * robotScale);
+    ctx.filter = `blur(${2 * robotScale}px)`;
+    legs.forEach(leg => ribbon(leg.points, s => 4 * robotScale * (1 - s * 0.76), 'rgba(28,66,54,.14)'));
     ctx.restore();
 
     legs.forEach(({points, root, side}) => {
@@ -111,40 +112,40 @@
       shade.addColorStop(0.25, '#588c78');
       shade.addColorStop(0.62, '#9fb9a5');
       shade.addColorStop(1, '#3d7260');
-      ribbon(points, s => 4.2 * (1 - s * 0.78), shade);
+      ribbon(points, s => 4.2 * robotScale * (1 - s * 0.78), shade);
       ctx.beginPath();
-      points.forEach((p, i) => i ? ctx.lineTo(p.x - 0.7, p.y - 0.8) : ctx.moveTo(p.x - 0.7, p.y - 0.8));
+      points.forEach((p, i) => i ? ctx.lineTo(p.x - 0.7 * robotScale, p.y - 0.8 * robotScale) : ctx.moveTo(p.x - 0.7 * robotScale, p.y - 0.8 * robotScale));
       ctx.strokeStyle = 'rgba(248,255,240,.4)';
-      ctx.lineWidth = 0.5;
+      ctx.lineWidth = 0.5 * robotScale;
       ctx.stroke();
     });
 
     const body = Array.from({length: 101}, (_, i) => center(i / 100, t));
     const middle = center(0.5, t);
-    const bodyShade = ctx.createLinearGradient(middle.x + middle.ty * 7, middle.y - middle.tx * 7,
-      middle.x - middle.ty * 7, middle.y + middle.tx * 7);
+    const bodyShade = ctx.createLinearGradient(middle.x + middle.ty * 7 * robotScale, middle.y - middle.tx * 7 * robotScale,
+      middle.x - middle.ty * 7 * robotScale, middle.y + middle.tx * 7 * robotScale);
     bodyShade.addColorStop(0, '#99b7a0');
     bodyShade.addColorStop(0.24, '#487e66');
     bodyShade.addColorStop(0.58, '#174e3f');
     bodyShade.addColorStop(1, '#0d342c');
-    ribbon(body, s => 8 * Math.pow(Math.sin(Math.PI * s), 0.2) + 0.7, bodyShade);
+    ribbon(body, s => (8 * Math.pow(Math.sin(Math.PI * s), 0.2) + 0.7) * robotScale, bodyShade);
 
     // Delicate segment seams and a continuous dorsal highlight reveal the flexure.
     for (let i = 0; i < 30; i++) {
       const u = 0.025 + i / 29 * 0.95;
       const p = center(u, t);
-      const half = 3.6 * Math.pow(Math.sin(Math.PI * u), 0.2);
+      const half = 3.6 * robotScale * Math.pow(Math.sin(Math.PI * u), 0.2);
       ctx.beginPath();
       ctx.moveTo(p.x + p.ty * half, p.y - p.tx * half);
-      ctx.quadraticCurveTo(p.x + p.tx, p.y + p.ty, p.x - p.ty * half, p.y + p.tx * half);
+      ctx.quadraticCurveTo(p.x + p.tx * robotScale, p.y + p.ty * robotScale, p.x - p.ty * half, p.y + p.tx * half);
       ctx.strokeStyle = 'rgba(219,239,213,.22)';
-      ctx.lineWidth = 0.65;
+      ctx.lineWidth = 0.65 * robotScale;
       ctx.stroke();
     }
     ctx.beginPath();
-    body.forEach((p, i) => i ? ctx.lineTo(p.x + p.ty * 1.2, p.y - p.tx * 1.2) : ctx.moveTo(p.x + p.ty * 1.2, p.y - p.tx * 1.2));
+    body.forEach((p, i) => i ? ctx.lineTo(p.x + p.ty * 1.2 * robotScale, p.y - p.tx * 1.2 * robotScale) : ctx.moveTo(p.x + p.ty * 1.2 * robotScale, p.y - p.tx * 1.2 * robotScale));
     ctx.strokeStyle = 'rgba(212,230,196,.48)';
-    ctx.lineWidth = 1;
+    ctx.lineWidth = robotScale;
     ctx.stroke();
     ctx.restore();
   }
@@ -158,7 +159,7 @@
     // Render translated copies of the same continuous body. At a boundary,
     // the head enters at left while the matching tail is still leaving at right.
     for (const offset of [-sceneWidth, 0, sceneWidth]) {
-      if (head.x + offset < -60 || tail.x + offset > sceneWidth + 60) continue;
+      if (head.x + offset < -60 * robotScale || tail.x + offset > sceneWidth + 60 * robotScale) continue;
       drawRobot(t, offset);
     }
     // Feather the artwork itself into the page, leaving the pause control crisp.
@@ -200,8 +201,8 @@
   }
   function resize() {
     ratio = Math.min(window.devicePixelRatio || 1, 2) * Math.max(canvas.clientWidth / 640, 0.5);
-    canvas.width = Math.round(640 * ratio);
-    canvas.height = Math.round(520 * ratio);
+    canvas.width = Math.round(sceneWidth * ratio);
+    canvas.height = Math.round(sceneHeight * ratio);
     draw(time);
   }
   button.addEventListener('click', () => { paused = !paused; sync(); });
