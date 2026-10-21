@@ -13,24 +13,22 @@
   let frame = 0;
   let ratio = 1;
   const tau = Math.PI * 2;
-  // An invisible, open S-curve. Arc-length sampling keeps the walking speed even.
+  const sceneWidth = 640;
+  const sceneHeight = 520;
+  const bodyLength = 195;
+  // One period of an invisible S-curve, joined smoothly across the canvas edges.
   const route = [];
   let routeLength = 0;
   for (let i = 0; i <= 960; i++) {
     const u = i / 960;
-    const p = {x: 25 + 745 * u, y: 273 + 82 * Math.sin(u * tau)};
+    const p = {x: sceneWidth * u, y: 273 + 82 * Math.sin(u * tau)};
     if (i) routeLength += Math.hypot(p.x - route[i - 1].x, p.y - route[i - 1].y);
     route.push({...p, distance: routeLength});
   }
 
   function onRoute(distance) {
-    if (distance < 0) {
-      const first = route[0], next = route[1];
-      const length = Math.hypot(next.x - first.x, next.y - first.y);
-      const tx = (next.x - first.x) / length, ty = (next.y - first.y) / length;
-      return {x: first.x + tx * distance, y: first.y + ty * distance, tx, ty};
-    }
-    distance = Math.min(distance, routeLength - 0.0001);
+    const period = Math.floor(distance / routeLength);
+    distance -= period * routeLength;
     let low = 0, high = route.length - 1;
     while (low + 1 < high) {
       const middle = (low + high) >> 1;
@@ -40,7 +38,7 @@
     const a = route[low], b = route[high];
     const amount = (distance - a.distance) / (b.distance - a.distance);
     const length = Math.hypot(b.x - a.x, b.y - a.y);
-    return {x: a.x + (b.x - a.x) * amount, y: a.y + (b.y - a.y) * amount,
+    return {x: a.x + (b.x - a.x) * amount + period * sceneWidth, y: a.y + (b.y - a.y) * amount,
       tx: (b.x - a.x) / length, ty: (b.y - a.y) / length};
   }
 
@@ -67,18 +65,14 @@
 
   function center(u, t) {
     const head = (300 + t * 36) % routeLength;
-    const p = onRoute(head - (1 - u) * 195);
+    const p = onRoute(head - (1 - u) * bodyLength);
     const wave = 2.4 * Math.sin(u * tau * 0.85 - t * 1.4);
     return {...p, x: p.x - p.ty * wave, y: p.y + p.tx * wave};
   }
 
-  function draw(t) {
-    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
-    ctx.clearRect(0, 0, 640, 520);
+  function drawRobot(t, offset) {
     ctx.save();
-    const head = (300 + t * 36) % routeLength;
-    // Quietly re-enter from the left after leaving the composition on the right.
-    ctx.globalAlpha = Math.min(1, head / 40, (routeLength - head) / 45);
+    ctx.translate(offset, 0);
 
     const legs = [];
     for (let i = 0; i < 15; i++) {
@@ -152,6 +146,38 @@
     ctx.strokeStyle = 'rgba(212,230,196,.48)';
     ctx.lineWidth = 1;
     ctx.stroke();
+    ctx.restore();
+  }
+
+  function draw(t) {
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    ctx.clearRect(0, 0, sceneWidth, sceneHeight);
+    const headDistance = (300 + t * 36) % routeLength;
+    const head = onRoute(headDistance);
+    const tail = onRoute(headDistance - bodyLength);
+    // Render translated copies of the same continuous body. At a boundary,
+    // the head enters at left while the matching tail is still leaving at right.
+    for (const offset of [-sceneWidth, 0, sceneWidth]) {
+      if (head.x + offset < -60 || tail.x + offset > sceneWidth + 60) continue;
+      drawRobot(t, offset);
+    }
+    // Feather the artwork itself into the page, leaving the pause control crisp.
+    ctx.save();
+    ctx.globalCompositeOperation = 'destination-in';
+    const horizontal = ctx.createLinearGradient(0, 0, sceneWidth, 0);
+    horizontal.addColorStop(0, 'rgba(0,0,0,0)');
+    horizontal.addColorStop(0.085, '#000');
+    horizontal.addColorStop(0.915, '#000');
+    horizontal.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = horizontal;
+    ctx.fillRect(0, 0, sceneWidth, sceneHeight);
+    const vertical = ctx.createLinearGradient(0, 0, 0, sceneHeight);
+    vertical.addColorStop(0, 'rgba(0,0,0,0)');
+    vertical.addColorStop(0.065, '#000');
+    vertical.addColorStop(0.935, '#000');
+    vertical.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = vertical;
+    ctx.fillRect(0, 0, sceneWidth, sceneHeight);
     ctx.restore();
   }
 

@@ -69,7 +69,7 @@ The former homepage hero illustration, its caption and paper link, and the intro
 
 ## Soft-gait animation
 
-The homepage now pairs the introduction with original Canvas artwork in `site/assets/soft-gait.js`, inspired by the author's `millipede.gif`. The robot follows an invisible S-shaped route; the body follows the curve and adjacent flexible legs move with a phase offset. No route, trail or magnetic field is drawn. It leaves the composition on the right and re-enters on the left. The artwork is illustrative, not a numerical simulation or experimental result. The source GIF is not published.
+The homepage now pairs the introduction with original Canvas artwork in `site/assets/soft-gait.js`, inspired by the author's `millipede.gif`. The robot follows an invisible S-shaped route; the body follows the curve and adjacent flexible legs move with a phase offset. No route, trail or magnetic field is drawn. The route is periodic across the left/right canvas boundaries: translated copies of the same continuous body let the head enter from the left while its tail is still leaving on the right. Both route position and tangent match at the boundary, and the gait phase runs continuously. A transparent edge mask feathers the artwork into the white page; no whole-robot fade or blank reset is used. The artwork is illustrative, not a numerical simulation or experimental result. The source GIF is not published.
 
 The animation has a pause/play control, starts still for visitors requesting reduced motion, and suspends rendering when outside the viewport or the tab is hidden. It requires no external libraries or media downloads.
 
