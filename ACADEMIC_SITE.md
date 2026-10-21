@@ -63,7 +63,7 @@ Published to `https://ebeame.github.io/` through the repository’s GitHub Actio
 
 ## Research illustrations, second version
 
-The second illustration set originally used `magnetic-strider-v2.png`, `ciliavine-system-v2.png` and `vascular-microswarm-v2.png`. The generated Strider figure has since been replaced with the author’s experimental media (below). These were redrawn with built-in ImageGen using the actual Figure 1 of each published paper as image input. The strider reference was retrieved from the official PMC open dataset; the CiliaVine and swarm references were rendered from the author’s locally stored published PDFs. Previous artwork is retained in the source repository. Website output includes the current illustrations and experimental Strider abstract. The new scientific schematics use contained sizing to preserve mechanisms and labels on mobile.
+The second illustration set originally used `magnetic-strider-v2.png`, `ciliavine-system-v2.png` and `vascular-microswarm-v2.png`. The Strider and CiliaVine card figures have since been replaced with original experimental/research images (below). These were redrawn with built-in ImageGen using the actual Figure 1 of each published paper as image input. The strider reference was retrieved from the official PMC open dataset; the CiliaVine and swarm references were rendered from the author’s locally stored published PDFs. Previous artwork is retained in the source repository. Website output includes the current illustrations and experimental Strider abstract. The new scientific schematics use contained sizing to preserve mechanisms and labels on mobile.
 
 The former homepage hero illustration, its caption and paper link, and the introductory IROS award banner were removed at the author’s request. The Research section heading is “Magnetic Miniature Robots”. The awards section and the three research images remain.
 
@@ -77,8 +77,12 @@ The animation has a pause/play control, starts still for visitors requesting red
 
 The interface uses a pure white background (`#ffffff`), near-black text (`#262626`) and conventional blue links (`#315d7d`). Descriptive labels are neutral gray. The author requested a less decorative academic presentation: sans-serif headings, no numbered section captions, no large hero action button, and no gradient or rounded backdrop around the walking artwork. The walking artwork has its original green material palette, while retaining the invisible S-shaped route. Scientific publication figures retain their original colors.
 
-## Strider experimental abstract
+## Current research media
 
-`site/assets/research/strider-jump-abstract.gif` combines the author's `STD_jump on water surface end strength 0 mT.jpg` with the obstacle-crossing sequence from `Supplementary Video 2.mp4` (90.5–114.4 s). The photo is on the left and the video on the right. Source playback timing and the original speed/scale annotations are preserved. The GIF uses 8 fps at 720 × 270 pixels; the still fallback is `strider-jump-abstract.jpg`. This is deterministic video editing and compositing; no generative editing was applied to the experimental images. Source details are recorded in `site/data/strider-media.json`. The full source video is not published.
+Bio-inspired design displays `site/assets/research/strider-jump.jpg`, the author's experimental time-composite photograph supplied as `STD_jump on water surface end strength 0 mT.jpg`. It has no video, animated montage or playback controls.
 
-The Research section now uses three plain figure-and-description rows, with each figure below its subsection heading. The experimental GIF loads when its figure enters the viewport, has a pause/play button, and defaults to its still image when reduced motion is requested.
+Ciliated robotic systems displays `ciliavine-intravascular.png`, cropped from the original CUHK-Shenzhen research news illustration to match the vessel and multimodal manipulation region selected by the author. The full original illustration remains in the featured study. The generated CiliaVine card artwork is retained in the source but excluded from deployment.
+
+Magnetic microrobot swarms retains the schematic redrawing. The Research section uses plain figure-and-description rows, with each figure below its subsection heading. Outgoing link arrows are retained.
+
+The previously prepared Strider montage (`strider-jump-abstract.gif` and `.jpg`) is retained as source material but excluded from the generated website. Its provenance is recorded in `site/data/strider-media.json`: a photo beside Supplementary Video 2 (90.5–114.4 s), preserving source timing and scale annotations. The full source video is not published.

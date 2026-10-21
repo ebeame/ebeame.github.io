@@ -62,3 +62,7 @@
 .mini-art figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:8px;font-size:11px;color:var(--muted)}
 .clip-toggle{border:0;border-bottom:1px solid #aaa;background:transparent;padding:0;color:var(--blue);font-size:11px;cursor:pointer}
 @media(max-width:650px){.research-detail{grid-template-columns:1fr;gap:18px}.research-item{padding:25px 0}.research-item .mini-art{aspect-ratio:auto}.research-copy p{font-size:14px}.gait-art{margin-top:-15px}.mini-art figcaption{font-size:10px}}
+
+/* The Strider panel now uses only the author's original experimental photograph. */
+.research-item:first-child .mini-art img{max-height:330px;object-fit:contain}
+@media(max-width:650px){.research-item:first-child .mini-art img{max-height:340px}}
