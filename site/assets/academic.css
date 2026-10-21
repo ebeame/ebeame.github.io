@@ -54,10 +54,17 @@
 .research-item h3{min-height:2.6em;margin:0 0 16px;font-size:21px;line-height:1.3}
 .research-detail{display:block}
 .research-item .mini-art{display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;width:100%;margin:0 0 18px;overflow:hidden;background:#fff}
-.research-item:first-child .mini-art{background:#000}
+.research-item:first-child .mini-art{background:#fff}
+.research-item:first-child .mini-art img{filter:invert(1)}
 .research-item:nth-child(n+2) .mini-art{background:#fff}
 .mini-art img{display:block;width:100%;height:100%;max-height:none;object-fit:contain}
 .research-copy .research-tag{margin:0 0 9px;font-size:12px}
 .research-copy p{font-size:13px;line-height:1.75}
 @media(max-width:900px){.research-grid{gap:20px}.research-item h3{font-size:19px}}
 @media(max-width:650px){.research-grid{grid-template-columns:1fr;gap:32px}.research-item h3{min-height:0;margin-bottom:14px;font-size:22px}.research-item .mini-art{aspect-ratio:16/9}.research-copy p{font-size:14px}.gait-art{margin-top:-15px}}
+
+.gait-art figcaption{justify-content:flex-end}
+.featured-study .featured-heading{font-size:27px;font-weight:500;line-height:1.3;margin:0 0 18px;letter-spacing:-.4px}
+.featured-study .featured-meta{font-size:12px;margin:0 0 8px}
+.featured-study h4{font-size:21px;font-weight:500;line-height:1.3;margin:0 0 12px}
+@media(max-width:650px){.featured-study .featured-heading{font-size:25px}}

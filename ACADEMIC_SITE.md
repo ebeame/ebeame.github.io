@@ -79,7 +79,7 @@ The interface uses a pure white background (`#ffffff`), near-black text (`#26262
 
 ## Current research media
 
-Bio-inspired design displays `site/assets/research/strider-jump-wide.jpg`, the author's experimental time-composite photograph supplied as `STD_jump on water surface end strength 0 mT.jpg`. The complete photograph is centered on a 1408 × 792 black canvas, with black side padding and no cropping. It has no video, animated montage or playback controls.
+Bio-inspired design displays `site/assets/research/strider-jump-wide.jpg`, the author's experimental time-composite photograph supplied as `STD_jump on water surface end strength 0 mT.jpg`. The complete photograph is centered on a 1408 × 792 black canvas, with black side padding and no cropping. At the author's request, CSS `filter: invert(1)` displays this figure as a dark robot on white; the original asset is retained unchanged. It has no video, animated montage or playback controls.
 
 Ciliated robotic systems displays `ciliavine-intravascular.png`, cropped from the original CUHK-Shenzhen research news illustration to match the vessel and multimodal manipulation region selected by the author. The full original illustration remains in the featured study. The generated CiliaVine card artwork is retained in the source but excluded from deployment.
 
@@ -88,3 +88,7 @@ Magnetic microrobot swarms displays `swarm-nmi-figure1.png`, an unchanged figure
 The three research directions are arranged side by side on desktop, with each original figure below its heading in a 16:9 frame. Narrow screens use a single column. Outgoing link arrows are retained.
 
 The previously prepared Strider montage (`strider-jump-abstract.gif` and `.jpg`) is retained as source material but excluded from the generated website. Its provenance is recorded in `site/data/strider-media.json`: a photo beside Supplementary Video 2 (90.5–114.4 s), preserving source timing and scale annotations. The full source video is not published.
+
+## Labels
+
+The first research direction is “Bio-inspired microrobot design”, with the descriptor “Robot design & Adaptive locomotion”. “Featured Study” is a heading, followed by journal/year and CiliaVine. The animation's visible caption has been removed while its accessible label and pause control remain. The shared Contact area on all pages contains only its heading and email link.
