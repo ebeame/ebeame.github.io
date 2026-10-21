@@ -65,4 +65,10 @@ Published to `https://ebeame.github.io/` through the repository’s GitHub Actio
 
 The Research cards now use `magnetic-strider-v2.png`, `ciliavine-system-v2.png` and `vascular-microswarm-v2.png`. These were redrawn with built-in ImageGen using the actual Figure 1 of each published paper as image input. The strider reference was retrieved from the official PMC open dataset; the CiliaVine and swarm references were rendered from the author’s locally stored published PDFs. Previous artwork is retained in the source repository. Website output includes only the second version. The new scientific schematics use contained sizing to preserve mechanisms and labels on mobile.
 
-The homepage hero illustration, its caption and paper link, and the introductory IROS award banner were removed at the author’s request. The hero now uses a text-only single-column layout. The Research section heading is “Magnetic Miniature Robots”. The awards section and the three research images remain.
+The former homepage hero illustration, its caption and paper link, and the introductory IROS award banner were removed at the author’s request. The Research section heading is “Magnetic Miniature Robots”. The awards section and the three research images remain.
+
+## Soft-gait animation
+
+The homepage now pairs the introduction with original Canvas artwork in `site/assets/soft-gait.js`, inspired by the author's `millipede.gif`. The robot follows an invisible S-shaped route; the body follows the curve and adjacent flexible legs move with a phase offset. No route, trail or magnetic field is drawn. It leaves the composition on the right and re-enters on the left. The artwork is illustrative, not a numerical simulation or experimental result. The source GIF is not published.
+
+The animation has a pause/play control, starts still for visitors requesting reduced motion, and suspends rendering when outside the viewport or the tab is hidden. It requires no external libraries or media downloads.
