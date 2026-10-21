@@ -72,3 +72,7 @@ The former homepage hero illustration, its caption and paper link, and the intro
 The homepage now pairs the introduction with original Canvas artwork in `site/assets/soft-gait.js`, inspired by the author's `millipede.gif`. The robot follows an invisible S-shaped route; the body follows the curve and adjacent flexible legs move with a phase offset. No route, trail or magnetic field is drawn. It leaves the composition on the right and re-enters on the left. The artwork is illustrative, not a numerical simulation or experimental result. The source GIF is not published.
 
 The animation has a pause/play control, starts still for visitors requesting reduced motion, and suspends rendering when outside the viewport or the tab is hidden. It requires no external libraries or media downloads.
+
+## Palette
+
+The interface uses a warm paper background (`#fbf9f6`), muted mineral blue (`#49677f`) for links and controls, and clay red (`#95635e`) for labels and accents. Pale blue and rose surfaces keep the overall appearance light. The walking artwork uses paired blue and rose legs with a blue body. Scientific publication figures retain their original colors. Main text, link, label and button colors maintain at least 4.5:1 contrast on their surfaces.

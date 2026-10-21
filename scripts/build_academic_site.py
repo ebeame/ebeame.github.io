@@ -65,7 +65,7 @@ def shell(title, body, page='home', path='/', description=None):
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(search_title)}</title><meta name="description" content="{esc(description)}">
-<meta name="theme-color" content="#176253"><link rel="canonical" href="{SITE_URL}{path}">
+<meta name="theme-color" content="#e5edf3"><link rel="canonical" href="{SITE_URL}{path}">
 <meta property="og:type" content="website"><meta property="og:title" content="{esc(search_title)}"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{SITE_URL}{path}">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/academic.css">
 <script type="application/ld+json">{json.dumps(structured)}</script><script src="/assets/academic.js" defer></script>{'<script src="/assets/soft-gait.js" defer></script>' if page == 'home' and path == '/' else ''}</head>
