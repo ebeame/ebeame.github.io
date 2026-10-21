@@ -38,6 +38,10 @@ class Page(HTMLParser):
 
 pages = {}
 for file in OUT.rglob('*.html'):
+    if re.fullmatch(r'google[0-9a-f]+\.html', file.name):
+        if file.read_text().strip() != f'google-site-verification: {file.name}':
+            issues.append(f'Invalid Google verification file: {file}')
+        continue
     parser = Page()
     parser.feed(file.read_text())
     pages[file] = parser

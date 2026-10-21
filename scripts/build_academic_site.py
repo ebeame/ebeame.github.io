@@ -138,6 +138,8 @@ def main():
     shutil.copytree(SOURCE / 'assets', OUT / 'assets', ignore=shutil.ignore_patterns(
         'magnetic-strider.png', 'ciliavine-system.png', 'vascular-microswarm.png'))
     shutil.copy2(ROOT / 'images/research/ciliavine.png', OUT / 'assets/ciliavine.png')
+    # Keep ownership verification files at the public root across deployments.
+    shutil.copytree(SOURCE / 'static', OUT, dirs_exist_ok=True)
     pages = {'index.html': home(), 'publications/index.html': publications_page(),
              'talks/index.html': shell('Talks', '<header class="page-heading"><p class="eyebrow">Sharing research</p><h1>Talks & presentations</h1><p>Invited talks and conference presentations.</p></header><section class="pub-page">' + talks() + '</section>', 'talks', '/talks/')}
     for name, content in pages.items():

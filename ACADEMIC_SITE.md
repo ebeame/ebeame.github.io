@@ -15,6 +15,7 @@
 - `site/data/research-image-prompts-v2.json`: current prompt set, generation tool, source papers and original figure references; the earlier prompt set is retained for reference.
 - `site/assets/academic.css`: typography and responsive layout.
 - `site/assets/academic.js`: mobile navigation, publication search and filters.
+- `site/static/`: files copied unchanged to the public root, including the Google Search Console ownership verification file. Keep this file published after verification.
 - `images/research/ciliavine.png`: research illustration from the author's CUHK-Shenzhen school news article; the visible caption links to the paper DOI, with the original image source recorded below.
 
 The content was transcribed from the author's September 2026 CV, located through the PostDoc project's other conversations. Degree fields were retained from the existing academic homepage. The Google Scholar URL was supplied by the author. The homepage includes all first-author and co-first-author papers identified in the CV (8 journal articles and 1 conference paper). The original CV PDF is not deployed. Its telephone number is not included in the public website.
