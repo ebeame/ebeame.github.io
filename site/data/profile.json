@@ -1,0 +1,36 @@
+{
+  "name": "Yibin Wang",
+  "role": "Research Associate",
+  "institution": "The Chinese University of Hong Kong, Shenzhen",
+  "school": "School of Science and Engineering",
+  "location": "Shenzhen, China",
+  "email": "yibinwang@link.cuhk.edu.cn",
+  "scholar": "https://scholar.google.com/citations?user=q1aNkywAAAAJ&hl=en",
+  "github": "https://github.com/ebeame",
+  "updated": "October 2026",
+  "education": [
+    {"degree": "Ph.D.", "field": "Materials Science and Engineering", "institution": "The Chinese University of Hong Kong, Shenzhen", "dates": "2021–2026", "detail": "Supervisor: Prof. Jiangfan Yu", "thesis": "Bio-inspired Medical Microrobots: Locomotion, Adaptability and Biomedical Applications"},
+    {"degree": "M.S.", "field": "Materials Science", "institution": "Carnegie Mellon University", "dates": "2018–2019", "detail": "College of Engineering"},
+    {"degree": "B.Eng.", "field": "Materials Processing", "institution": "Harbin Institute of Technology, Weihai", "dates": "2014–2018", "detail": "School of Materials Science and Engineering"}
+  ],
+  "awards": [
+    {"year": "2024", "name": "Best Conference Student Paper Award", "organization": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)"},
+    {"year": "2023", "name": "Frontiers of Science Award", "organization": "International Congress of Basic Science (ICBS)"},
+    {"year": "2023", "name": "Best Paper Award Finalist", "organization": "IEEE International Conference on Real-time Computing and Robotics (RCAR)"},
+    {"year": "2023", "name": "Student Research Award, First Prize", "organization": "The Chinese University of Hong Kong, Shenzhen"}
+  ],
+  "teaching": [
+    {"course": "AIR6213 · Engineering Materials", "level": "Graduate", "terms": "Fall 2023, 2024, 2025"},
+    {"course": "AIR6207 · Micro-Nanorobotics", "level": "Graduate", "terms": "Spring 2024, 2025"},
+    {"course": "CIE6037 · Automatic Control Theory", "level": "Graduate", "terms": "Spring 2022, 2023"},
+    {"course": "CSC1001 · Introduction to Computer Science", "level": "Undergraduate", "terms": "Fall 2022"},
+    {"course": "EIE3080 · Microprocessors and Computer Systems", "level": "Undergraduate", "terms": "Fall 2021"}
+  ],
+  "reviewing": ["Nature Communications", "Science Advances", "IEEE Transactions on Robotics", "Advanced Materials", "Advanced Functional Materials", "Cyborg and Bionic Systems", "ICRA", "IROS"],
+  "talks": [
+    {"date": "6 Nov 2026", "year": 2026, "status": "Upcoming invited talk", "title": "Bio-inspired Microrobots: From Design to Biomedical Applications", "event": "3rd BMEMat–Advanced Materials Joint Symposium", "location": "Hong Kong"},
+    {"date": "25 Jul 2026", "year": 2026, "status": "Invited talk", "title": "Magnetic Micro-/Nanorobots: From Bioinspired Design to Biomedical Applications", "event": "5th Annual Conference on Micro-/Nanomotors and 2026 International Symposium on Intelligent Nanorobotics and Nanosystems", "location": "Yiwu, China"},
+    {"date": "15 Oct 2024", "year": 2024, "status": "Award presentation", "title": "Millipede-Inspired Multi-legged Magnetic Soft Robots for Targeted Locomotion in Tortuous Environments", "event": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)", "location": "Abu Dhabi, UAE"},
+    {"date": "15 Dec 2023", "year": 2023, "status": "Award presentation", "title": "Magnetic Soft Robot for Biomedicine", "event": "Student Research Conference", "location": "Shenzhen, China"}
+  ]
+}

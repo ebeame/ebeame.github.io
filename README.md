@@ -1,4 +1,18 @@
-# Academic Pages
+# Yibin Wang — Academic Website
+
+The current academic website is generated from `site/` using Python's standard library. The previous AcademicPages sources are retained below for reference; they are not included in the new deployment artifact.
+
+```bash
+python3 scripts/build_academic_site.py
+python3 scripts/check_academic_site.py
+python3 -m http.server 8765 --bind 127.0.0.1 --directory dist
+```
+
+Open <http://127.0.0.1:8765/>. See [ACADEMIC_SITE.md](ACADEMIC_SITE.md) for content editing and deployment instructions.
+
+---
+
+# Original Academic Pages template
 **Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.**
 
 ![Academic Pages template example](images/themes/homepage-light.png "Academic Pages template example")
