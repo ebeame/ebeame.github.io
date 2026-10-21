@@ -72,7 +72,7 @@ def shell(title, body, page='home', path='/', description=None):
 <header class="site-header"><div class="header-inner wrap"><a class="wordmark" href="/" aria-label="Yibin Wang home">Yibin Wang<span>.</span></a>
 <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu ☰</button><nav class="nav-links" id="main-nav" aria-label="Main navigation">{navigation(page)}<a class="nav-contact" href="/#contact">Contact ↗</a></nav></div></header>
 <main id="main" class="wrap">{body}</main><div class="wrap"><section class="contact-band" id="contact" aria-labelledby="contact-title"><div><h2 id="contact-title">Let’s connect.</h2><p>Research, collaborations and academic enquiries.</p></div><a href="mailto:{PROFILE['email']}">{PROFILE['email']} ↗</a></section>
-<footer class="site-footer"><span>© 2026 Yibin Wang · CUHK-Shenzhen</span><span>Last updated {PROFILE['updated']} · <a href="{PROFILE['github']}">GitHub ↗</a></span></footer></div></body></html>'''
+<footer class="site-footer"><span>© 2026 Yibin Wang · CUHK-Shenzhen</span><span>Last updated {PROFILE['updated']} · <a href="{PROFILE['repository']}">GitHub ↗</a></span></footer></div></body></html>'''
 
 
 def heading(number, title, link=''):
@@ -97,7 +97,7 @@ def home():
     <p class="role">Research Associate, Ph.D.</p><p class="affiliation">School of Science and Engineering<br>The Chinese University of Hong Kong, Shenzhen</p>
     <p class="intro">I develop <strong>bio-inspired magnetic micro- and nanorobots</strong> for biomedical applications.</p>
     <div class="hero-actions"><a class="button" href="#research">Explore my research <span>↘</span></a></div>
-    <div class="profile-links"><a href="{PROFILE['scholar']}" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a><a href="mailto:{PROFILE['email']}">Email ↗</a><a href="{PROFILE['github']}" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div>
+    <div class="profile-links"><a href="{PROFILE['scholar']}" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a><a href="mailto:{PROFILE['email']}">Email ↗</a><a href="{PROFILE['repository']}" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div>
     </section>
     <section class="section" aria-labelledby="about-title"><h2 id="about-title" class="eyebrow">About me</h2><p class="home-bio">I am a Research Associate at <strong>The Chinese University of Hong Kong, Shenzhen</strong>, working with Prof. Jiangfan Yu. I received my Ph.D. in March 2026, following an M.S. from Carnegie Mellon University and a B.Eng. from Harbin Institute of Technology, Weihai.</p>
     <p class="home-bio">My research connects bio-inspired design, soft materials and magnetic actuation. I am interested in how miniature robots move, adapt and manipulate their surroundings, with applications in intravascular intervention, targeted delivery and image-guided therapy.</p></section>

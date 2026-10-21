@@ -56,9 +56,9 @@ This URL identifies the intended destination; deployment is confirmed only after
 
 Browser checks performed locally: responsive navigation, publication text search, empty search state, 2026 year filter (4 results), and BibTeX expansion. The original source CV and repository were used as the content references. External publisher availability is outside the local link checker.
 
-## Pending publication detail
+## Publication
 
-The author asked to update the homepage GitHub link after publication. Retain the existing genuine GitHub profile URL until a final deployment address is confirmed; then update the link and its label to match the destination.
+Published to `https://ebeame.github.io/` through the repository’s GitHub Actions deployment. The homepage and footer GitHub links point to `https://github.com/ebeame/ebeame.github.io`; Person structured data retains the author’s GitHub profile. GitHub Pages uses the `workflow` build type.
 
 ## Research illustrations, second version
 
