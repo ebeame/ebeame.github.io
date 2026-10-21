@@ -75,4 +75,4 @@ The animation has a pause/play control, starts still for visitors requesting red
 
 ## Palette
 
-The interface uses a warm paper background (`#fbf9f6`), muted mineral blue (`#49677f`) for links and controls, and clay red (`#95635e`) for labels and accents. Pale blue and rose surfaces keep the overall appearance light. The walking artwork uses paired blue and rose legs with a blue body. Scientific publication figures retain their original colors. Main text, link, label and button colors maintain at least 4.5:1 contrast on their surfaces.
+The interface uses a pure white background (`#ffffff`), muted mineral blue (`#49677f`) for links and controls, and clay red (`#95635e`) for labels and accents. Pale blue and rose surfaces keep the overall appearance light. The walking artwork uses paired blue and rose legs with a blue body. Scientific publication figures retain their original colors. Main text, link, label and button colors maintain at least 4.5:1 contrast on their surfaces.
