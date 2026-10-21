@@ -48,21 +48,16 @@
 .contact-band h2{font-size:25px;font-weight:500;letter-spacing:0}
 @media(max-width:650px){.hero{padding:35px 0 30px;gap:10px}.hero h1{font-size:46px}.gait-art{max-width:390px}.section{padding:35px 0}.section-heading h2{font-size:25px}.research-item h3{font-size:22px}.featured-study{padding:25px 0 0}.research-item h3 br{display:none}}
 
-/* Research figures are shown at a readable size, with concise descriptions beside them. */
-.research-grid{display:block}
-.research-item{padding:25px 0 30px;border-bottom:1px solid var(--line)}
-.research-item:first-child{padding-top:0}
-.research-item:last-child{border-bottom:0;padding-bottom:0}
-.research-item h3{margin:0 0 18px}
-.research-detail{display:grid;grid-template-columns:1.45fr 1fr;gap:32px;align-items:center}
-.research-item .mini-art{display:block;aspect-ratio:auto;margin:0;background:transparent;overflow:visible}
-.mini-art img{width:100%;height:auto;object-fit:contain}
-.research-copy .research-tag{margin-bottom:9px}
-.research-copy p{font-size:14px;line-height:1.75}
-.mini-art figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:8px;font-size:11px;color:var(--muted)}
-.clip-toggle{border:0;border-bottom:1px solid #aaa;background:transparent;padding:0;color:var(--blue);font-size:11px;cursor:pointer}
-@media(max-width:650px){.research-detail{grid-template-columns:1fr;gap:18px}.research-item{padding:25px 0}.research-item .mini-art{aspect-ratio:auto}.research-copy p{font-size:14px}.gait-art{margin-top:-15px}.mini-art figcaption{font-size:10px}}
-
-/* The Strider panel now uses only the author's original experimental photograph. */
-.research-item:first-child .mini-art img{max-height:330px;object-fit:contain}
-@media(max-width:650px){.research-item:first-child .mini-art img{max-height:340px}}
+/* Three research directions, with original figures below their headings. */
+.research-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.research-item,.research-item:first-child,.research-item:last-child{padding:0;border:0;min-width:0}
+.research-item h3{min-height:2.6em;margin:0 0 16px;font-size:21px;line-height:1.3}
+.research-detail{display:block}
+.research-item .mini-art{display:flex;align-items:center;justify-content:center;aspect-ratio:16/9;width:100%;margin:0 0 18px;overflow:hidden;background:#fff}
+.research-item:first-child .mini-art{background:#000}
+.research-item:nth-child(n+2) .mini-art{background:#fff}
+.mini-art img{display:block;width:100%;height:100%;max-height:none;object-fit:contain}
+.research-copy .research-tag{margin:0 0 9px;font-size:12px}
+.research-copy p{font-size:13px;line-height:1.75}
+@media(max-width:900px){.research-grid{gap:20px}.research-item h3{font-size:19px}}
+@media(max-width:650px){.research-grid{grid-template-columns:1fr;gap:32px}.research-item h3{min-height:0;margin-bottom:14px;font-size:22px}.research-item .mini-art{aspect-ratio:16/9}.research-copy p{font-size:14px}.gait-art{margin-top:-15px}}
