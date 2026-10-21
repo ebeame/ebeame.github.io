@@ -57,15 +57,16 @@ def navigation(page):
 
 
 def shell(title, body, page='home', path='/', description=None):
-    description = description or 'Yibin Wang · Research Associate at CUHK-Shenzhen. Bio-inspired magnetic micro- and nanorobots for biomedical applications.'
+    description = description or 'Yibin Wang is a Research Associate at The Chinese University of Hong Kong, Shenzhen (CUHK-Shenzhen), researching bio-inspired magnetic micro- and nanorobots for biomedical applications.'
+    search_title = 'Yibin Wang | CUHK-Shenzhen | Magnetic Micro- and Nanorobotics' if path == '/' else f'{title} | Yibin Wang | CUHK-Shenzhen'
     structured = {'@context': 'https://schema.org', '@type': 'Person', 'name': PROFILE['name'], 'url': SITE_URL,
-                  'jobTitle': PROFILE['role'], 'affiliation': {'@type': 'CollegeOrUniversity', 'name': PROFILE['institution']},
+                  'jobTitle': PROFILE['role'], 'affiliation': {'@type': 'CollegeOrUniversity', 'name': PROFILE['institution'], 'alternateName': ['CUHK-Shenzhen', 'CUHK Shenzhen']},
                   'sameAs': [PROFILE['scholar'], PROFILE['github']]}
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{esc(title)} | Yibin Wang</title><meta name="description" content="{esc(description)}">
+<title>{esc(search_title)}</title><meta name="description" content="{esc(description)}">
 <meta name="theme-color" content="#176253"><link rel="canonical" href="{SITE_URL}{path}">
-<meta property="og:type" content="website"><meta property="og:title" content="{esc(title)} | Yibin Wang"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{SITE_URL}{path}">
+<meta property="og:type" content="website"><meta property="og:title" content="{esc(search_title)}"><meta property="og:description" content="{esc(description)}"><meta property="og:url" content="{SITE_URL}{path}">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/assets/academic.css">
 <script type="application/ld+json">{json.dumps(structured)}</script><script src="/assets/academic.js" defer></script></head>
 <body><a class="skip" href="#main">Skip to content</a>
@@ -94,7 +95,7 @@ def talks():
 
 def home():
     body = f'''<section class="hero" id="about"><div><p class="eyebrow">Magnetic micro- and nanorobotics</p><h1>Yibin Wang</h1>
-    <p class="role">Research Associate, Ph.D.</p><p class="affiliation">School of Science and Engineering<br>The Chinese University of Hong Kong, Shenzhen</p>
+    <p class="role">Research Associate, Ph.D.</p><p class="affiliation">School of Science and Engineering<br>The Chinese University of Hong Kong, Shenzhen (CUHK-Shenzhen)</p>
     <p class="intro">I develop <strong>bio-inspired magnetic micro- and nanorobots</strong> for biomedical applications.</p>
     <div class="hero-actions"><a class="button" href="#research">Explore my research <span>↘</span></a></div>
     <div class="profile-links"><a href="{PROFILE['scholar']}" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a><a href="mailto:{PROFILE['email']}">Email ↗</a><a href="{PROFILE['repository']}" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div>
