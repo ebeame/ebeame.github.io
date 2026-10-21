@@ -107,20 +107,20 @@
     ctx.save();
     ctx.translate(2, 4);
     ctx.filter = 'blur(2px)';
-    legs.forEach(leg => ribbon(leg.points, s => 4 * (1 - s * 0.76), 'rgba(64,76,95,.13)'));
+    legs.forEach(leg => ribbon(leg.points, s => 4 * (1 - s * 0.76), 'rgba(28,66,54,.14)'));
     ctx.restore();
 
     legs.forEach(({points, root, side}) => {
       const tip = points[points.length - 1];
       const shade = ctx.createLinearGradient(root.x, root.y, tip.x, tip.y);
-      shade.addColorStop(0, side < 0 ? '#a47670' : '#59788f');
-      shade.addColorStop(0.25, side < 0 ? '#c29a93' : '#8faabb');
-      shade.addColorStop(0.62, side < 0 ? '#e0c8c2' : '#c0d1dd');
-      shade.addColorStop(1, side < 0 ? '#ab7b75' : '#6b8ba2');
+      shade.addColorStop(0, '#265a4d');
+      shade.addColorStop(0.25, '#588c78');
+      shade.addColorStop(0.62, '#9fb9a5');
+      shade.addColorStop(1, '#3d7260');
       ribbon(points, s => 4.2 * (1 - s * 0.78), shade);
       ctx.beginPath();
       points.forEach((p, i) => i ? ctx.lineTo(p.x - 0.7, p.y - 0.8) : ctx.moveTo(p.x - 0.7, p.y - 0.8));
-      ctx.strokeStyle = 'rgba(255,250,246,.5)';
+      ctx.strokeStyle = 'rgba(248,255,240,.4)';
       ctx.lineWidth = 0.5;
       ctx.stroke();
     });
@@ -129,10 +129,10 @@
     const middle = center(0.5, t);
     const bodyShade = ctx.createLinearGradient(middle.x + middle.ty * 7, middle.y - middle.tx * 7,
       middle.x - middle.ty * 7, middle.y + middle.tx * 7);
-    bodyShade.addColorStop(0, '#c3d1da');
-    bodyShade.addColorStop(0.24, '#8ca4b6');
-    bodyShade.addColorStop(0.58, '#54738b');
-    bodyShade.addColorStop(1, '#354f66');
+    bodyShade.addColorStop(0, '#99b7a0');
+    bodyShade.addColorStop(0.24, '#487e66');
+    bodyShade.addColorStop(0.58, '#174e3f');
+    bodyShade.addColorStop(1, '#0d342c');
     ribbon(body, s => 8 * Math.pow(Math.sin(Math.PI * s), 0.2) + 0.7, bodyShade);
 
     // Delicate segment seams and a continuous dorsal highlight reveal the flexure.
@@ -143,13 +143,13 @@
       ctx.beginPath();
       ctx.moveTo(p.x + p.ty * half, p.y - p.tx * half);
       ctx.quadraticCurveTo(p.x + p.tx, p.y + p.ty, p.x - p.ty * half, p.y + p.tx * half);
-      ctx.strokeStyle = 'rgba(244,233,227,.35)';
+      ctx.strokeStyle = 'rgba(219,239,213,.22)';
       ctx.lineWidth = 0.65;
       ctx.stroke();
     }
     ctx.beginPath();
     body.forEach((p, i) => i ? ctx.lineTo(p.x + p.ty * 1.2, p.y - p.tx * 1.2) : ctx.moveTo(p.x + p.ty * 1.2, p.y - p.tx * 1.2));
-    ctx.strokeStyle = 'rgba(235,241,246,.65)';
+    ctx.strokeStyle = 'rgba(212,230,196,.48)';
     ctx.lineWidth = 1;
     ctx.stroke();
     ctx.restore();

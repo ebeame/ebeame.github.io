@@ -1,0 +1,17 @@
+{
+  "photo_source": "STD_jump on water surface end strength 0 mT.jpg",
+  "video_source": "Supplementary Video 2.mp4",
+  "source_clip_seconds": [
+    90.5,
+    114.4
+  ],
+  "output_seconds": 23.76,
+  "playback": "Original source timing, labelled 0.025\u00d7 in the video",
+  "fps": 8,
+  "size": [
+    720,
+    270
+  ],
+  "composition": "Experimental photo on left; video on right, resized and letterboxed on black. No generative image editing.",
+  "paper": "https://doi.org/10.1002/advs.202207493"
+}

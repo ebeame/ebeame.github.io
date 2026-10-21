@@ -21,3 +21,24 @@
   }
   if (search) { search.addEventListener('input', filter); year.addEventListener('change', filter); type.addEventListener('change', filter); filter(); }
 })();
+
+// Experimental GIFs have a still-image alternative and follow the visitor's motion preference.
+(() => {
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  document.querySelectorAll('img[data-motion-src]').forEach(img => {
+    const button = img.closest('figure').querySelector('.clip-toggle');
+    let playing = !motion.matches;
+    let visible = false;
+    function update() {
+      const source = playing && visible ? img.dataset.motionSrc : img.dataset.stillSrc;
+      if (img.getAttribute('src') !== source) img.setAttribute('src', source);
+      button.hidden = false;
+      button.textContent = playing ? 'Pause clip' : 'Play clip';
+      button.setAttribute('aria-pressed', String(playing));
+    }
+    button.addEventListener('click', () => { playing = !playing; update(); });
+    motion.addEventListener('change', event => { playing = !event.matches; update(); });
+    new IntersectionObserver(entries => { visible = entries[0].isIntersecting; update(); }).observe(img);
+    update();
+  });
+})();

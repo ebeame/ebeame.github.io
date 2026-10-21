@@ -29,7 +29,7 @@ class Page(HTMLParser):
             self.papers += 1
         if a.get('rel') == 'canonical':
             self.canonical += 1
-        for key in ['href', 'src']:
+        for key in ['href', 'src', 'data-motion-src', 'data-still-src']:
             if a.get(key):
                 self.links.append(a[key])
         if tag == 'img' and not a.get('alt'):

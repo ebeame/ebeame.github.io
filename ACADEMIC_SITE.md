@@ -11,7 +11,7 @@
 - `site/data/profile.json`: affiliation, education, honors, teaching, peer review and talks.
 - `site/data/publications.json`: 19 journal articles, 2 conference papers and 1 book chapter. Set `selected: true` to feature a paper on the homepage.
 - `scripts/build_academic_site.py`: page structure and standard-library static generator.
-- `site/assets/research/`: three original ImageGen concept illustrations used by the Research cards.
+- `site/assets/research/`: current research illustrations, experimental Strider media and retained earlier artwork.
 - `site/data/research-image-prompts-v2.json`: current prompt set, generation tool, source papers and original figure references; the earlier prompt set is retained for reference.
 - `site/assets/academic.css`: typography and responsive layout.
 - `site/assets/academic.js`: mobile navigation, publication search and filters.
@@ -63,7 +63,7 @@ Published to `https://ebeame.github.io/` through the repository’s GitHub Actio
 
 ## Research illustrations, second version
 
-The Research cards now use `magnetic-strider-v2.png`, `ciliavine-system-v2.png` and `vascular-microswarm-v2.png`. These were redrawn with built-in ImageGen using the actual Figure 1 of each published paper as image input. The strider reference was retrieved from the official PMC open dataset; the CiliaVine and swarm references were rendered from the author’s locally stored published PDFs. Previous artwork is retained in the source repository. Website output includes only the second version. The new scientific schematics use contained sizing to preserve mechanisms and labels on mobile.
+The second illustration set originally used `magnetic-strider-v2.png`, `ciliavine-system-v2.png` and `vascular-microswarm-v2.png`. The generated Strider figure has since been replaced with the author’s experimental media (below). These were redrawn with built-in ImageGen using the actual Figure 1 of each published paper as image input. The strider reference was retrieved from the official PMC open dataset; the CiliaVine and swarm references were rendered from the author’s locally stored published PDFs. Previous artwork is retained in the source repository. Website output includes the current illustrations and experimental Strider abstract. The new scientific schematics use contained sizing to preserve mechanisms and labels on mobile.
 
 The former homepage hero illustration, its caption and paper link, and the introductory IROS award banner were removed at the author’s request. The Research section heading is “Magnetic Miniature Robots”. The awards section and the three research images remain.
 
@@ -75,4 +75,10 @@ The animation has a pause/play control, starts still for visitors requesting red
 
 ## Palette
 
-The interface uses a pure white background (`#ffffff`), muted mineral blue (`#49677f`) for links and controls, and clay red (`#95635e`) for labels and accents. Pale blue and rose surfaces keep the overall appearance light. The walking artwork uses paired blue and rose legs with a blue body. Scientific publication figures retain their original colors. Main text, link, label and button colors maintain at least 4.5:1 contrast on their surfaces.
+The interface uses a pure white background (`#ffffff`), near-black text (`#262626`) and conventional blue links (`#315d7d`). Descriptive labels are neutral gray. The author requested a less decorative academic presentation: sans-serif headings, no numbered section captions, no large hero action button, and no gradient or rounded backdrop around the walking artwork. The walking artwork has its original green material palette, while retaining the invisible S-shaped route. Scientific publication figures retain their original colors.
+
+## Strider experimental abstract
+
+`site/assets/research/strider-jump-abstract.gif` combines the author's `STD_jump on water surface end strength 0 mT.jpg` with the obstacle-crossing sequence from `Supplementary Video 2.mp4` (90.5–114.4 s). The photo is on the left and the video on the right. Source playback timing and the original speed/scale annotations are preserved. The GIF uses 8 fps at 720 × 270 pixels; the still fallback is `strider-jump-abstract.jpg`. This is deterministic video editing and compositing; no generative editing was applied to the experimental images. Source details are recorded in `site/data/strider-media.json`. The full source video is not published.
+
+The Research section now uses three plain figure-and-description rows, with each figure below its subsection heading. The experimental GIF loads when its figure enters the viewport, has a pause/play button, and defaults to its still image when reduced motion is requested.
